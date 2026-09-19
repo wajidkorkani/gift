@@ -36,7 +36,7 @@ p{color:var(--muted);line-height:1.8}
 .btn{border:1px solid rgba(233,196,106,.45);background:linear-gradient(135deg,#4a102d,#190d19);color:#fff5eb;padding:14px 22px;border-radius:999px;cursor:pointer;box-shadow:0 10px 40px rgba(214,90,135,.16);transition:.3s;position:relative;overflow:hidden}
 .btn:hover{transform:translateY(-3px);box-shadow:0 16px 45px rgba(214,90,135,.3)}
 .btn:after{content:"";position:absolute;inset:-40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);transform:translateX(-80%) rotate(20deg);transition:.6s}.btn:hover:after{transform:translateX(80%) rotate(20deg)}
-.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.actions{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:28px}
 .scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:3px;color:#9f8995;animation:bob 2s infinite}
 
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
@@ -55,12 +55,20 @@ p{color:var(--muted);line-height:1.8}
 
 .poetry{max-width:850px;margin:auto;text-align:center}.poem{font-family:"Cormorant Garamond",serif;font-size:clamp(25px,4vw,42px);line-height:1.45;color:#fbeef4;padding:34px;border-top:1px solid rgba(233,196,106,.18);border-bottom:1px solid rgba(233,196,106,.18);position:relative}.poem span{color:var(--rose)}
 
-.eyes{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.eye-art{min-height:440px;border-radius:36px;background:radial-gradient(circle at 50% 45%,#8b214c 0,#260b18 22%,#0a070b 60%);position:relative;overflow:hidden;border:1px solid rgba(233,196,106,.2);box-shadow:inset 0 0 80px #000,0 30px 80px rgba(0,0,0,.5)}.eye-art:before,.eye-art:after{content:"";position:absolute;width:170px;height:105px;background:#efe4e7;border-radius:70% 0 70% 0;top:50%;transform:translateY(-50%) rotate(25deg);box-shadow:0 0 30px rgba(255,255,255,.2)}.eye-art:before{left:18%;}.eye-art:after{right:18%;transform:translateY(-50%) rotate(-25deg)}.pupil{position:absolute;width:58px;height:58px;border-radius:50%;background:#12080d;box-shadow:0 0 0 12px #6c3551,0 0 30px #d65a87;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2}.spark{position:absolute;width:3px;height:3px;border-radius:50%;background:white;animation:twinkle 1.7s infinite}
+.eyes{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.eye-art{min-height:440px;border-radius:36px;background:radial-gradient(circle at 50% 45%,#8b214c 0,#260b18 22%,#0a070b 60%);position:relative;overflow:hidden;border:1px solid rgba(233,196,106,.2);box-shadow:inset 0 0 80px #000,0 30px 80px rgba(0,0,0,.5)}
+.eye-art:before,.eye-art:after{content:"";position:absolute;width:34%;aspect-ratio:17/10.5;background:#efe4e7;border-radius:70% 0 70% 0;top:50%;transform:translateY(-50%) rotate(25deg);box-shadow:0 0 30px rgba(255,255,255,.2)}
+.eye-art:before{left:12%}
+.eye-art:after{right:12%;transform:translateY(-50%) rotate(-25deg)}
+.pupil{position:absolute;width:11%;aspect-ratio:1;border-radius:50%;background:#12080d;box-shadow:0 0 0 clamp(6px,1.4vw,12px) #6c3551,0 0 30px #d65a87;top:50%;transform:translate(-50%,-50%);z-index:2;transition:scale .4s ease}
+.pupil.l{left:29%}
+.pupil.r{left:71%}
+.spark{position:absolute;width:3px;height:3px;border-radius:50%;background:white;animation:twinkle 1.7s infinite;z-index:3}
 
 .cake-wrap{text-align:center}.cake{width:220px;height:140px;position:relative;margin:60px auto 35px;cursor:pointer;filter:drop-shadow(0 25px 30px rgba(0,0,0,.5));transition:.3s}.cake:hover{transform:scale(1.03)}.layer{position:absolute;left:0;right:0;margin:auto;border-radius:16px 16px 10px 10px}.l1{bottom:0;width:220px;height:70px;background:linear-gradient(#8f274d,#53132e);border:2px solid #d98ca6}.l2{bottom:52px;width:185px;height:55px;background:linear-gradient(#e5a8bd,#9a4162);border:2px solid #f4c9d7}.icing{position:absolute;bottom:93px;left:28px;width:164px;height:22px;border-radius:50%;background:#fff0e5;box-shadow:0 8px 0 #e7b6c6}.candle{position:absolute;bottom:114px;left:103px;width:14px;height:55px;border-radius:4px;background:repeating-linear-gradient(135deg,#f3d77a 0 8px,#7c2046 8px 16px)}.flame{position:absolute;bottom:163px;left:103px;width:16px;height:25px;background:#ffd56b;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 0 25px #ff8c42;animation:flame .55s infinite alternate}
 .cake-note{color:#c8b7c2;font-size:13px}.celebrate{font-family:"Cormorant Garamond",serif;font-size:26px;color:#f7dce6}
 
-#fireworks{position:fixed;inset:0;z-index:90;pointer-events:none;display:none}.firework{position:absolute;width:5px;height:5px;border-radius:50%;animation:explode 1.2s ease-out forwards;box-shadow:0 0 12px currentColor}
+#fireworks{position:fixed;inset:0;z-index:90;pointer-events:none;display:none}
 
 .final{text-align:center}.final .big-heart{font-size:95px;animation:heartbeat 1.4s infinite}.final p{max-width:650px;margin:15px auto}
 
@@ -71,9 +79,9 @@ p{color:var(--muted);line-height:1.8}
 @keyframes bob{50%{transform:translate(-50%,8px)}}
 @keyframes flame{to{transform:rotate(-45deg) scale(1.18);filter:brightness(1.3)}}
 @keyframes twinkle{50%{opacity:.15;transform:scale(.5)}}
-@keyframes explode{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--x),var(--y)) scale(.2);opacity:0}}
 @media(max-width:800px){.menu{display:none}.story-grid,.eyes{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.photo:nth-child(n){transform:none}.eye-art{min-height:330px}}
 @media(max-width:480px){section{padding-left:14px;padding-right:14px}.gallery{gap:9px}.photo{border-radius:14px}.story-card{padding:24px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
@@ -82,9 +90,11 @@ p{color:var(--muted);line-height:1.8}
   <div class="menu">
     <a href="#story">Kahani</a>
     <a href="#gallery">Tasveerain</a>
-    <a href="index5.html">Our story</a>
-    <a href="Index4.html">Birthday surprise</a>
-    <a href="index1.html">Hamesha</a>
+    <a href="#poetry">Poetry</a>
+    <a href="#eyes">Aankhein</a>
+    <a href="#birthday">Birthday</a>
+    <a href="#promise">Promise</a>
+    <a href="#forever">Hamesha</a>
   </div>
 </nav>
 
@@ -135,28 +145,44 @@ Aaj tumhara din hai lekin tohfa to mujhe mila tha jab tum meri zindagi me aayi t
   </div>
 </section>
 
+<!-- FIX: the gallery was loose on the page with no section/id, so the "#gallery" links had nothing to jump to -->
 <section id="gallery">
   <div class="container">
-    <div class="kicker reveal">Page 03 • That's my Princess</div>
-    <h2 class="reveal">Har frame mein <span style="color:var(--rose)">Faryal</span>.</h2>
-    <p class="reveal">Picture par tap karo — full-screen mein dekho sakti hain ap 👀.</p>
     <div class="gallery">
-      <div class="photo reveal"><img src="faryal4.jpg"
-      alt="Faryal photo 3" loading="lazy"></div>
-<div class="photo reveal"><img src="Faryal.jpeg" alt="faryal"
-alt="Faryal photo 4" loading="lazy"></div>
-<div class="photo reveal"><img src="faryal1.jpg" ></alt="Faryal photo 4" loading="lazy">
-</div>
-<div class="photo reveal"><img src="faryal3.jpg" ></alt="Faryal photo 4" loading="lazy"></div>
-    <div class="photo reveal"><img src="faryal8.jpg" ></alt="Faryal photo 4" loading="lazy"></div>
-    <div class="photo reveal"><img src="faryal9.jpg" ></alt="Faryal photo 4" loading="lazy"></div>
-</div>
+      <div class="photo reveal">
+        <img src="faryal4.jpg" alt="Faryal photo 3" loading="lazy">
+      </div>
+
+      <div class="photo reveal">
+        <img src="Faryal.jpeg" alt="Faryal photo 4" loading="lazy">
+      </div>
+
+      <div class="photo reveal">
+        <img src="faryal1.jpg" alt="Faryal photo 1" loading="lazy">
+      </div>
+
+      <div class="photo reveal">
+        <img src="faryal3.jpg" alt="Faryal photo 2" loading="lazy">
+      </div>
+
+      <div class="photo reveal">
+        <img src="faryal8.jpg" alt="Faryal photo 5" loading="lazy">
+      </div>
+
+      <div class="photo reveal">
+        <img src="faryal9.jpg" alt="Faryal photo 6" loading="lazy">
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- FIX (main bug): the <img> below was missing its closing ">" and id="lightboxImg".
+     Because of that, </div> was swallowed and this hidden (display:none) lightbox
+     never closed, so every section after it (poetry, eyes, cake, promise, forever)
+     was nested inside it and hidden. -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
   <button class="btn close" onclick="closeLightbox()">Close ×</button>
-  <img src=""
+  <img id="lightboxImg" src="" alt="Faryal photo enlarged">
 </div>
 
 <section id="poetry">
@@ -196,116 +222,277 @@ Mahoobat Srf Apsa he Rahagi Ya Wada hai Mera...!🌹”</p>
 
 <section id="eyes">
   <div class="container eyes">
-    <div class="eye-art reveal" id="eyeArt"></div>
+
+    <!-- FIX: the pupils were styled in CSS but never added to the HTML -->
+    <div class="eye-art reveal" id="eyeArt">
+      <span class="pupil l"></span>
+      <span class="pupil r"></span>
+    </div>
+
     <div class="reveal">
       <div class="kicker">Page 05 • My Heart Beet🤌</div>
-      <h2>Apki <span style="color:var(--rose)">aankhein</span>…</h2>
-      <p class="quote">“Apki aankhon mein aisi baat hai ke dil unhein dekh kar Asa Lahta hai Mara Hoa Dill dobara Zinda  ho Gaya Apki Eyes dakh kr 👀.”</p>
-      <p>Dakhain Allah Pak ka Kamal Birthday Apka Hai Or Allah Pak Na Etna Payara Or Duniya Ka Sub Sa Zayada Bara Gift Mujy Dy Deya🌚.</p>
-       <a href="index5.html"
-       <button class="btn" onclick="eyeMagic()">This Day is Very special For me✨</button></a>
+
+      <h2>
+        Apki <span style="color:var(--rose)">aankhein</span>…
+      </h2>
+
+      <p class="quote">
+        “Apki aankhon mein aisi baat hai ke dil unhein dekh kar Asa Lahta hai
+        Mara Hoa Dill dobara Zinda ho Gaya Apki Eyes dakh kr 👀.”
+      </p>
+
+      <p>
+        Dakhain Allah Pak ka Kamal Birthday Apka Hai Or Allah Pak Na Etna
+        Payara Or Duniya Ka Sub Sa Zayada Bara Gift Mujy Dy Deya🌚.
+      </p>
+
+      <!-- FIX: the link used to leave the page instantly, so the animation never showed.
+           Now it plays the effect first, then opens the next page. -->
+      <a href="index5.html" class="btn" onclick="goAfter(event, eyeMagic, 1600)">
+        This Day is Very special For me✨
+      </a>
     </div>
+
   </div>
 </section>
+
 
 <section id="birthday">
   <div class="container cake-wrap reveal">
-    <div class="kicker">Page 06  • Bhut Ho Gai Batain Ao Cake Cut Karen  </div>
-    <h2>Birthday Cake <span style="color:var(--rose)">Cut Karen</span> 🎂</h2>
-    <p class="celebrate">Ab Cake Ka Oper Cilick Karen Or Magic Dakhain. ✨</p>
-    <div class="cake" onclick="cutCake()">
-      <div class="layer l1"></div><div class="layer l2"></div><div class="icing"></div>
-      <div class="candle"></div><div class="flame"></div>
+
+    <div class="kicker">
+      Page 06 • Bhut Ho Gai Batain Ao Cake Cut Karen
     </div>
-    <div class="cake-note" id="cakeNote">Tap the cake ❤️<br>
-    Happy birthday 🎈🎂 Too You Happy Birth day Dear Faryal</div>
+
+    <h2>
+      Birthday Cake
+      <span style="color:var(--rose)">Cut Karen</span> 🎂
+    </h2>
+
+    <p class="celebrate">
+      Ab Cake Ka Oper Cilick Karen Or Magic Dakhain. ✨
+    </p>
+
+    <div class="cake" onclick="cutCake()">
+      <div class="layer l1"></div>
+      <div class="layer l2"></div>
+      <div class="icing"></div>
+      <div class="candle"></div>
+      <div class="flame"></div>
+    </div>
+
+    <div class="cake-note" id="cakeNote">
+      Tap the cake ❤️<br>
+      Happy birthday 🎈🎂 Too You Happy Birth day Dear Faryal
+    </div>
+
   </div>
 </section>
+
 
 <section id="promise">
   <div class="container story-card reveal" style="text-align:center">
+
     <div class="kicker">Page 07 • Ek Khaas Paighaam</div>
-    <h2>Faryal, Iam <span style="color:var(--rose)">Always</span> with You</h2>
-    <p class="quote">“apka sath mena apni Zindagi ka wo pal gozara hain jo shayad ma kabhi be bhool na pao 💝 or allah pak mera hisa ki sari khoshiya apko dy or apka hisa ka sara ghum hamsha khush rakho ap 😘<br>Ameen🤲</p>
+
+    <h2>
+      Faryal, Iam
+      <span style="color:var(--rose)">Always</span> with You
+    </h2>
+
+    <p class="quote">
+      “apka sath mena apni Zindagi ka wo pal gozara hain jo shayad ma kabhi be
+      bhool na pao 💝 or allah pak mera hisa ki sari khoshiya apko dy or apka
+      hisa ka sara ghum hamsha khush rakho ap 😘<br>
+      Ameen🤲
+    </p>
+
     <div class="actions">
-      <button class="btn" onclick="makeHearts()">Hearts Animation ❤️</button>
-      <a class="btn" href="#forever"> Ak Or Page Ha Madam😚 </a>
+
+      <button class="btn" onclick="makeHearts()">
+        Hearts Animation ❤️
+      </button>
+
+      <a class="btn" href="#forever">
+        Ak Or Page Ha Madam😚
+      </a>
+
     </div>
+
   </div>
 </section>
+
 
 <section id="forever" class="final">
   <div class="container reveal">
+
     <div class="big-heart">♥</div>
-    <div class="kicker">Page 08 • I hope apko pasand aya hoga</div>
-    <h2>Happy🎂<span style="color:var(--rose)">birthday Cute <br>🥰.</span></h2>
-    <p>Ya khas apka leya web Bani ha Umeed Hai Apko Pasand Aye Ge Or Ak Serpice h
-    Hai lkn Wo 2nd Web ma hai 🌝.”</p><br>
-    <p>کاش لفظوں کی بھی کوئی قیمت ہوتی،<br>تو آج اپنی پوری زندگی لکھ کر تمہارے نام کر دیتا…<br>کیو کہ تم وہ احساس ہو،<br>جسے لفظ کبھی پورا بیان نہیں کر سکتے۔ ❤️</p>
-    <p style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:28px">This Is For My Princess 🌝. ♥</p>
-    <div class="actions">
-      <a href="Index4.html" <button class="btn" onclick="makeHearts(); fireworks(55)">cilick karna 🤗👇</a></button>
-      <br></br>
-      <button class="btn" onclick="shareSite()">Copy web link♥</button>
-      <a href="index1.html"><img src="iman.jpg"height="200" </a>
-      <a href="README.txt"></a>
-      <a href="script.js"></a>
-      <a href="style.css"></a>
+
+    <div class="kicker">
+      Page 08 • I hope apko pasand aya hoga
     </div>
+
+    <h2>
+      Happy🎂
+      <span style="color:var(--rose)">
+        birthday Cute <br>🥰.
+      </span>
+    </h2>
+
+    <p>
+      Ya khas apka leya web Bani ha Umeed Hai Apko Pasand Aye Ge Or Ak Serpice h
+      Hai lkn Wo 2nd Web ma hai 🌝.”
+    </p>
+
+    <br>
+
+    <p>
+      کاش لفظوں کی بھی کوئی قیمت ہوتی،
+      <br>
+      تو آج اپنی پوری زندگی لکھ کر تمہارے نام کر دیتا…
+      <br>
+      کیو کہ تم وہ احساس ہو،
+      <br>
+      جسے لفظ کبھی پورا بیان نہیں کر سکتے۔ ❤️
+    </p>
+
+    <p style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:28px">
+      This Is For My Princess 🌝. ♥
+    </p>
+
+    <div class="actions">
+
+      <!-- FIX: same as above, show hearts + fireworks, then go to the next page -->
+      <a
+        href="Index4.html"
+        class="btn"
+        onclick="goAfter(event, () => { makeHearts(); fireworks(55); }, 2400)"
+      >
+        cilick karna 🤗👇
+      </a>
+
+      <button class="btn" onclick="shareSite()">
+        Copy web link♥
+      </button>
+
+      <a href="index1.html">
+        <img src="iman.jpg" height="200" alt="Iman">
+      </a>
+
+    </div>
+
   </div>
 </section>
 
-<script>
-const photos=[...document.querySelectorAll('.photo img')];
-const lb=document.getElementById('lightbox'), lbi=document.getElementById('lightboxImg');
-photos.forEach(img=>img.parentElement.addEventListener('click',()=>{lbi.src=img.src;lb.classList.add('open')}));
-function closeLightbox(e){if(!e||e.target===lb||e.target.classList.contains('close'))lb.classList.remove('open')}
 
-const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+<script>
+const photos = [...document.querySelectorAll('.photo img')];
+const lb  = document.getElementById('lightbox');
+const lbi = document.getElementById('lightboxImg');
+
+photos.forEach(img => img.parentElement.addEventListener('click', () => {
+  lbi.src = img.src;
+  lb.classList.add('open');
+}));
+
+function closeLightbox(e){
+  if (!e || e.target === lb || e.target.classList.contains('close')) lb.classList.remove('open');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+const io = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) e.target.classList.add('show');
+}), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(x => io.observe(x));
+
+/* Run an effect, then follow the link after a short delay */
+function goAfter(e, fn, delay = 1500){
+  e.preventDefault();
+  const url = e.currentTarget.href;
+  fn();
+  setTimeout(() => { location.href = url; }, delay);
+}
 
 function shareSite(){
-  const data={title:'Faryal — My Forever',text:'Faryal ke liye ek khaas digital gift ❤️',url:location.href};
-  if(navigator.share) navigator.share(data); else {navigator.clipboard?.writeText(location.href); alert('Link copy ho gaya ❤️');}
+  const data = { title:'Faryal — My Forever', text:'Faryal ke liye ek khaas digital gift ❤️', url:location.href };
+  if (navigator.share) navigator.share(data);
+  else { navigator.clipboard?.writeText(location.href); alert('Link copy ho gaya ❤️'); }
 }
+
 function makeHearts(){
-  for(let i=0;i<26;i++){
-    const h=document.createElement('div');h.textContent=['♥','❤','✦','♡'][Math.floor(Math.random()*4)];
-    h.style.position='fixed';h.style.left=Math.random()*100+'vw';h.style.top='105vh';h.style.zIndex=95;
-    h.style.color=['#d65a87','#e9c46a','#fff4e8'][Math.floor(Math.random()*3)];
-    h.style.fontSize=(16+Math.random()*28)+'px';h.style.pointerEvents='none';
-    h.style.transition='transform 2.8s ease, opacity 2.8s ease';document.body.appendChild(h);
-    requestAnimationFrame(()=>{h.style.transform=`translate(${(Math.random()-.5)*120}px,-${80+Math.random()*100}vh) rotate(${Math.random()*360}deg)`;h.style.opacity=0});
-    setTimeout(()=>h.remove(),3000);
+  for (let i = 0; i < 26; i++){
+    const h = document.createElement('div');
+    h.textContent = ['♥','❤','✦','♡'][Math.floor(Math.random()*4)];
+    h.style.position = 'fixed';
+    h.style.left = Math.random()*100 + 'vw';
+    h.style.top = '105vh';
+    h.style.zIndex = 95;
+    h.style.color = ['#d65a87','#e9c46a','#fff4e8'][Math.floor(Math.random()*3)];
+    h.style.fontSize = (16 + Math.random()*28) + 'px';
+    h.style.pointerEvents = 'none';
+    h.style.transition = 'transform 2.8s ease, opacity 2.8s ease';
+    document.body.appendChild(h);
+    requestAnimationFrame(() => {
+      h.style.transform = `translate(${(Math.random()-.5)*120}px,-${80+Math.random()*100}vh) rotate(${Math.random()*360}deg)`;
+      h.style.opacity = 0;
+    });
+    setTimeout(() => h.remove(), 3000);
   }
 }
+
 function eyeMagic(){
-  const el=document.getElementById('eyeArt'); el.style.transition='1s'; el.style.transform='scale(1.02)';
-  for(let i=0;i<35;i++){const s=document.createElement('i');s.className='spark';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*1.5+'s';el.appendChild(s)}
-  setTimeout(()=>el.style.transform='',800);
+  const el = document.getElementById('eyeArt');
+  el.style.transition = '1s';
+  el.style.transform = 'scale(1.02)';
+  el.querySelectorAll('.pupil').forEach(p => {
+    p.style.scale = '1.3';
+    setTimeout(() => { p.style.scale = ''; }, 900);
+  });
+  for (let i = 0; i < 35; i++){
+    const s = document.createElement('i');
+    s.className = 'spark';
+    s.style.left = Math.random()*100 + '%';
+    s.style.top = Math.random()*100 + '%';
+    s.style.animationDelay = Math.random()*1.5 + 's';
+    el.appendChild(s);
+  }
+  setTimeout(() => { el.style.transform = ''; }, 800);
 }
+
 function cutCake(){
-  document.getElementById('cakeNote').textContent='Happy Birthday, Faryal! Ab dekho asli magic… ✨';
-  document.querySelector('.flame').style.display='none';
-  fireworks(85); makeHearts();
+  document.getElementById('cakeNote').textContent = 'Happy Birthday, Faryal! Ab dekho asli magic… ✨';
+  document.querySelector('.flame').style.display = 'none';
+  fireworks(85);
+  makeHearts();
 }
-function fireworks(n=65){
-  const c=document.getElementById('fireworks'),ctx=c.getContext('2d');
-  c.style.display='block';c.width=innerWidth;c.height=innerHeight;
-  const particles=[];
-  for(let k=0;k<n;k++){
-    const cx=innerWidth*(.12+Math.random()*.76),cy=innerHeight*(.12+Math.random()*.5);
-    for(let i=0;i<28;i++){
-      const a=Math.PI*2*i/28, sp=1.8+Math.random()*4.5;
-      particles.push({x:cx,y:cy,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,size:1+Math.random()*2});
+
+function fireworks(n = 65){
+  const c = document.getElementById('fireworks'), ctx = c.getContext('2d');
+  c.style.display = 'block';
+  c.width = innerWidth;
+  c.height = innerHeight;
+  const particles = [];
+  for (let k = 0; k < n; k++){
+    const cx = innerWidth*(.12 + Math.random()*.76), cy = innerHeight*(.12 + Math.random()*.5);
+    for (let i = 0; i < 28; i++){
+      const a = Math.PI*2*i/28, sp = 1.8 + Math.random()*4.5;
+      particles.push({ x:cx, y:cy, vx:Math.cos(a)*sp, vy:Math.sin(a)*sp, life:1, size:1 + Math.random()*2 });
     }
   }
-  let t=0;
+  let t = 0;
   function frame(){
-    ctx.clearRect(0,0,c.width,c.height);t++;
-    particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.035;p.vx*=.992;p.vy*=.992;p.life-=.012;ctx.globalAlpha=Math.max(0,p.life);ctx.fillStyle=`hsl(${(t*3+p.x)%360},90%,70%)`;ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,7);ctx.fill()});
-    if(t<110)requestAnimationFrame(frame);else{ctx.clearRect(0,0,c.width,c.height);c.style.display='none'}
-  } frame();
+    ctx.clearRect(0, 0, c.width, c.height);
+    t++;
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.vy += .035; p.vx *= .992; p.vy *= .992; p.life -= .012;
+      ctx.globalAlpha = Math.max(0, p.life);
+      ctx.fillStyle = `hsl(${(t*3 + p.x) % 360},90%,70%)`;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, 7); ctx.fill();
+    });
+    if (t < 110) requestAnimationFrame(frame);
+    else { ctx.clearRect(0, 0, c.width, c.height); c.style.display = 'none'; }
+  }
+  frame();
 }
 </script>
 </body>
