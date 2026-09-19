@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08060b">
+<title>Faryal — Meri Jaan ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+:root{
+  --bg:#070609; --panel:#100c13; --wine:#6f173d; --rose:#d65a87;
+  --gold:#e9c46a; --cream:#fff4e8; --muted:#c8b7c2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 20% 10%,#24101d 0,#09070b 32%,#050508 100%);color:var(--cream);font-family:Montserrat,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:55px 55px;mask-image:linear-gradient(to bottom,#000,transparent 85%);z-index:0}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:rgba(7,6,9,.68);backdrop-filter:blur(18px);border-bottom:1px solid rgba(233,196,106,.14)}
+.brand{font-family:"Cormorant Garamond",serif;font-size:25px;letter-spacing:3px}.brand span{color:var(--gold)}
+.menu{display:flex;gap:7px;overflow:auto;max-width:70vw}.menu a{font-size:11px;padding:9px 11px;border:1px solid transparent;border-radius:999px;white-space:nowrap;color:#d8cbd2}.menu a:hover{border-color:#71314e;color:white;background:#160c14}
+section{min-height:100svh;position:relative;z-index:1;padding:100px 20px 65px;display:flex;align-items:center;justify-content:center}
+.container{width:min(1120px,100%);margin:auto}
+.kicker{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase}
+h1,h2,h3{font-family:"Cormorant Garamond",serif;margin:.2em 0}
+h1{font-size:clamp(60px,14vw,150px);line-height:.78;letter-spacing:-3px}
+h2{font-size:clamp(44px,7vw,82px);line-height:.9}
+p{color:var(--muted);line-height:1.8}
+.hero{text-align:center;overflow:hidden}
+.hero .halo{position:absolute;width:min(700px,100vw);height:min(700px,100vw);border-radius:50%;background:radial-gradient(circle,rgba(214,90,135,.28),transparent 65%);filter:blur(10px);animation:pulse 5s ease-in-out infinite}
+.hero-content{position:relative;z-index:2}
+.hero h1{animation:rise 1.3s ease both}
+.hero .subtitle{font-family:"Cormorant Garamond",serif;font-size:clamp(24px,4vw,38px);color:#f5dfe9;animation:rise 1.7s ease both}
+.heart{display:inline-block;color:#d94470;animation:heartbeat 1.5s infinite}
+.btn{border:1px solid rgba(233,196,106,.45);background:linear-gradient(135deg,#4a102d,#190d19);color:#fff5eb;padding:14px 22px;border-radius:999px;cursor:pointer;box-shadow:0 10px 40px rgba(214,90,135,.16);transition:.3s;position:relative;overflow:hidden}
+.btn:hover{transform:translateY(-3px);box-shadow:0 16px 45px rgba(214,90,135,.3)}
+.btn:after{content:"";position:absolute;inset:-40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);transform:translateX(-80%) rotate(20deg);transition:.6s}.btn:hover:after{transform:translateX(80%) rotate(20deg)}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:3px;color:#9f8995;animation:bob 2s infinite}
+
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.story-card{padding:32px;border:1px solid rgba(233,196,106,.18);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));box-shadow:0 30px 90px rgba(0,0,0,.4);position:relative;overflow:hidden}
+.story-card:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#d65a87;filter:blur(90px);opacity:.16;right:-50px;top:-60px}
+.quote{font-family:"Cormorant Garamond",serif;font-size:34px;color:#fff1f5;line-height:1.2}
+.signature{color:var(--gold);font-size:12px;letter-spacing:3px}
+
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.photo{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:20px;border:1px solid rgba(233,196,106,.2);cursor:pointer;background:#0d0b0e}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95);transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .5s}
+.photo:hover img{transform:scale(1.08);filter:saturate(1.2) brightness(1.08)}
+.photo:nth-child(2){transform:translateY(30px)} .photo:nth-child(3){transform:translateY(-15px)} .photo:nth-child(4){transform:translateY(22px)}
+.photo:after{content:"Faryal ❤️";position:absolute;left:12px;bottom:12px;padding:7px 10px;border-radius:999px;background:rgba(0,0,0,.55);font-size:10px;letter-spacing:2px}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:100;display:none;place-items:center;padding:20px}.lightbox.open{display:grid}.lightbox img{max-width:min(94vw,900px);max-height:86vh;object-fit:contain;border-radius:18px;box-shadow:0 0 80px rgba(214,90,135,.25)}.close{position:absolute;top:22px;right:22px}
+
+.poetry{max-width:850px;margin:auto;text-align:center}.poem{font-family:"Cormorant Garamond",serif;font-size:clamp(25px,4vw,42px);line-height:1.45;color:#fbeef4;padding:34px;border-top:1px solid rgba(233,196,106,.18);border-bottom:1px solid rgba(233,196,106,.18);position:relative}.poem span{color:var(--rose)}
+
+.eyes{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.eye-art{min-height:440px;border-radius:36px;background:radial-gradient(circle at 50% 45%,#8b214c 0,#260b18 22%,#0a070b 60%);position:relative;overflow:hidden;border:1px solid rgba(233,196,106,.2);box-shadow:inset 0 0 80px #000,0 30px 80px rgba(0,0,0,.5)}.eye-art:before,.eye-art:after{content:"";position:absolute;width:170px;height:105px;background:#efe4e7;border-radius:70% 0 70% 0;top:50%;transform:translateY(-50%) rotate(25deg);box-shadow:0 0 30px rgba(255,255,255,.2)}.eye-art:before{left:18%;}.eye-art:after{right:18%;transform:translateY(-50%) rotate(-25deg)}.pupil{position:absolute;width:58px;height:58px;border-radius:50%;background:#12080d;box-shadow:0 0 0 12px #6c3551,0 0 30px #d65a87;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2}.spark{position:absolute;width:3px;height:3px;border-radius:50%;background:white;animation:twinkle 1.7s infinite}
+
+.cake-wrap{text-align:center}.cake{width:220px;height:140px;position:relative;margin:60px auto 35px;cursor:pointer;filter:drop-shadow(0 25px 30px rgba(0,0,0,.5));transition:.3s}.cake:hover{transform:scale(1.03)}.layer{position:absolute;left:0;right:0;margin:auto;border-radius:16px 16px 10px 10px}.l1{bottom:0;width:220px;height:70px;background:linear-gradient(#8f274d,#53132e);border:2px solid #d98ca6}.l2{bottom:52px;width:185px;height:55px;background:linear-gradient(#e5a8bd,#9a4162);border:2px solid #f4c9d7}.icing{position:absolute;bottom:93px;left:28px;width:164px;height:22px;border-radius:50%;background:#fff0e5;box-shadow:0 8px 0 #e7b6c6}.candle{position:absolute;bottom:114px;left:103px;width:14px;height:55px;border-radius:4px;background:repeating-linear-gradient(135deg,#f3d77a 0 8px,#7c2046 8px 16px)}.flame{position:absolute;bottom:163px;left:103px;width:16px;height:25px;background:#ffd56b;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 0 25px #ff8c42;animation:flame .55s infinite alternate}
+.cake-note{color:#c8b7c2;font-size:13px}.celebrate{font-family:"Cormorant Garamond",serif;font-size:26px;color:#f7dce6}
+
+#fireworks{position:fixed;inset:0;z-index:90;pointer-events:none;display:none}.firework{position:absolute;width:5px;height:5px;border-radius:50%;animation:explode 1.2s ease-out forwards;box-shadow:0 0 12px currentColor}
+
+.final{text-align:center}.final .big-heart{font-size:95px;animation:heartbeat 1.4s infinite}.final p{max-width:650px;margin:15px auto}
+
+.reveal{opacity:0;transform:translateY(35px);transition:1s ease}.reveal.show{opacity:1;transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{transform:scale(.92);opacity:.65}50%{transform:scale(1.05);opacity:1}}
+@keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.18)}28%{transform:scale(1)}42%{transform:scale(1.12)}}
+@keyframes bob{50%{transform:translate(-50%,8px)}}
+@keyframes flame{to{transform:rotate(-45deg) scale(1.18);filter:brightness(1.3)}}
+@keyframes twinkle{50%{opacity:.15;transform:scale(.5)}}
+@keyframes explode{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--x),var(--y)) scale(.2);opacity:0}}
+@media(max-width:800px){.menu{display:none}.story-grid,.eyes{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.photo:nth-child(n){transform:none}.eye-art{min-height:330px}}
+@media(max-width:480px){section{padding-left:14px;padding-right:14px}.gallery{gap:9px}.photo{border-radius:14px}.story-card{padding:24px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="brand" href="#home">FARYAL <span>♥</span></a>
+  <div class="menu">
+    <a href="#story">Kahani</a>
+    <a href="#gallery">Tasveerain</a>
+    <a href="index5.html">Our story</a>
+    <a href="Index4.html">Birthday surprise</a>
+    <a href="index1.html">Hamesha</a>
+  </div>
+</nav>
+
+<canvas id="fireworks"></canvas>
+
+<section id="home" class="hero">
+  <div class="halo"></div>
+  <div class="hero-content">
+    <div class="kicker">Sirf Faryal Ke Liye</div>
+    <h1>Faryal</h1>
+    <div class="subtitle">Meri Jaan • Meri Wife • My wold   <span class="heart">♥</span></div>
+    <p>Ye chhota sa gift apka leya umeed ha apko acha laga ga  .</p>
+    <div class="actions">
+      <a class="btn" href="#story">Scroll down 👇 ✨</a>
+    </div>
+  </div>
+  <div class="scroll">SCROLL • LOVE AWAITS</div>
+</section>
+
+<section id="story">
+  <div class="container story-grid">
+    <div class="story-card reveal">
+      <div class="kicker">Page 01 • My Princess 🫀</div>
+      <h2>My dear<br><span style="color:var(--rose)"> Princess<br></span> Only For U</h2>
+      <p class="quote">“ Happy Birthday meri Jaan! 🎂
+Aaj tumhara din hai lekin tohfa to mujhe mila tha jab tum meri zindagi me aayi thi.🤭 Tum meri life ki sab se achi cheez ho💖. Allah tumhe hamesha khush rakhe, tumhari har pareshani mujhe de de 🫀aur meri har khushi tumhe.🫶 Hamesha mere sath rehna.🥹🫠”</p>
+      <p class="signature">— Birthday Queen Faryal❤️</p>
+    </div>
+    <div class="story-card reveal">
+      <div class="kicker">Page 02 • Ek Wada Krta Ho Apsa</div>
+      <p class="quote">“Ma apsa ak promise krta ho chai Qayamat he kiu na aa jaye ma humasha apka sath raho ga or apko kabhi be Koi be takleef ni ana do ga humasha khush rakho ga apko👉👈.”</p>
+      <p> میری جان… ❤️
+
+تم سے محبت کوئی لفظ نہیں،
+میری رگوں میں چلتی ہوئی زندگی ہے۔
+
+تم میری وہ خواہش ہو
+جس کے بعد مجھے کسی اور چیز کی خواہش نہیں رہی۔ ❤️
+
+تم ساتھ ہو تو سب کچھ میرا ہے،
+تم نہ ہو تو کچھ بھی نہیں۔
+
+اور سچ کہوں…
+مجھے دنیا سے نہیں،
+بس تمہیں کھونے سے ڈر لگتا ہے۔ 🫀❤️.</p>
+      <div class="actions"><a class="btn" href="#gallery">Ahm👀 Her pic </a></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="kicker reveal">Page 03 • That's my Princess</div>
+    <h2 class="reveal">Har frame mein <span style="color:var(--rose)">Faryal</span>.</h2>
+    <p class="reveal">Picture par tap karo — full-screen mein dekho sakti hain ap 👀.</p>
+    <div class="gallery">
+      <div class="photo reveal"><img src="/faryal4.jpg"
+      alt="Faryal photo 3" loading="lazy"></div>
+<div class="photo reveal"><img src="/Faryal.jpeg" alt="faryal"
+alt="Faryal photo 4" loading="lazy"></div>
+<div class="photo reveal"><img src="/faryal1.jpg" ></alt="Faryal photo 4" loading="lazy">
+</div>
+<div class="photo reveal"><img src="/faryal3.jpg" ></alt="Faryal photo 4" loading="lazy"></div>
+    <div class="photo reveal"><img src="/faryal8.jpg" ></alt="Faryal photo 4" loading="lazy"></div>
+    <div class="photo reveal"><img src="/faryal9.jpg" ></alt="Faryal photo 4" loading="lazy"></div>
+</div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="btn close" onclick="closeLightbox()">Close ×</button>
+  <img src=""
+</div>
+
+<section id="poetry">
+  <div class="container poetry reveal">
+    <div class="kicker">Page 04 • Meri princess,my wold</div>
+    <h2>happy birthday<span style="color:var(--rose)">👉👈 👀 necha kuch ha apka leya</span>…</h2>
+    <div class="poem">
+      “Happy Birthday Meri Jaan, Meri Zindagi, Meri Duniya ❤️🎂🫶🏻,<br>
+      Aaj ka din mere liye sirf tumhara birthday nahi hai…
+Aaj woh din hai jis din meri duniya ko woh shakhs mila tha,
+jo aage chal kar meri duniya banne wali thi. ❤️<br>
+      Faryal ❤️
+shayad main lafzon mein kabhi explain na kar paun ke tum mere liye kya ho…
+lekin itna zaroor kehna chahta hoon ke
+meri zindagi ki sabse khoobsurat cheez tum ho. 🥹❤️ —<br>
+      <br>Tum meri wife ho, lekin mere liye sirf wife nahi ho…
+tum meri best friend ho, meri happiness ho, mera sukoon ho,
+meri har tension ke baad wali smile ho,
+aur meri un duaon ka jawab ho jo maine kabhi lafzon mein maangi bhi nahi thi. ❤️<br>Tumhari smile dekh kar mera mood automatically acha ho jata hai.
+Tumhari awaaz sun kar dil ko ajeeb sa sukoon milta hai.
+Aur tumhara mere saath hona mujhe ye feel karwata hai
+ke haan… main duniya ka sabse lucky insaan hoon. 🫶🏻<br>Kabhi kabhi sochta hoon ke maine aisa kya acha kiya tha
+jo Allah ne mujhe tum jaisi humsafar de di. ❤️<br>Tum meri zindagi ka woh chapter ho
+jise main kabhi khatam nahi karna chahta.
+Main chahta hoon tumhare saath budha hoon,
+tumhare saath har birthday celebrate karun,
+tumhari har choti si khushi ka reason banu,
+aur jab tum kabhi udaas ho…
+to duniya se pehle tumhare paas main khara hoon. ❤️‍🩹<br><br>Or Ma Apni Zindagi Ka Har Minute Har second Apka Sath Gozarna Chata ho<br>Apka Bagir Ak Second Be 1000 Sal Jitna Bara Lagta Hai<br><br><span>Allah Pak apko Duniya Ki Har khushi dy.<br> Ameen😘</span>”
+    </div>
+    <p>“Jaan 🤌
+Mujy Nahi PATA Ma Kab Tak is Duniya Ma Hu..🌍 
+Lekin Jab Tak Hu 🎀💖🥺
+Mahoobat Srf Apsa he Rahagi Ya Wada hai Mera...!🌹”</p>
+  </div>
+</section>
+
+<section id="eyes">
+  <div class="container eyes">
+    <div class="eye-art reveal" id="eyeArt"></div>
+    <div class="reveal">
+      <div class="kicker">Page 05 • My Heart Beet🤌</div>
+      <h2>Apki <span style="color:var(--rose)">aankhein</span>…</h2>
+      <p class="quote">“Apki aankhon mein aisi baat hai ke dil unhein dekh kar Asa Lahta hai Mara Hoa Dill dobara Zinda  ho Gaya Apki Eyes dakh kr 👀.”</p>
+      <p>Dakhain Allah Pak ka Kamal Birthday Apka Hai Or Allah Pak Na Etna Payara Or Duniya Ka Sub Sa Zayada Bara Gift Mujy Dy Deya🌚.</p>
+       <a href="index5.html"
+       <button class="btn" onclick="eyeMagic()">This Day is Very special For me✨</button></a>
+    </div>
+  </div>
+</section>
+
+<section id="birthday">
+  <div class="container cake-wrap reveal">
+    <div class="kicker">Page 06  • Bhut Ho Gai Batain Ao Cake Cut Karen  </div>
+    <h2>Birthday Cake <span style="color:var(--rose)">Cut Karen</span> 🎂</h2>
+    <p class="celebrate">Ab Cake Ka Oper Cilick Karen Or Magic Dakhain. ✨</p>
+    <div class="cake" onclick="cutCake()">
+      <div class="layer l1"></div><div class="layer l2"></div><div class="icing"></div>
+      <div class="candle"></div><div class="flame"></div>
+    </div>
+    <div class="cake-note" id="cakeNote">Tap the cake ❤️<br>
+    Happy birthday 🎈🎂 Too You Happy Birth day Dear Faryal</div>
+  </div>
+</section>
+
+<section id="promise">
+  <div class="container story-card reveal" style="text-align:center">
+    <div class="kicker">Page 07 • Ek Khaas Paighaam</div>
+    <h2>Faryal, Iam <span style="color:var(--rose)">Always</span> with You</h2>
+    <p class="quote">“apka sath mena apni Zindagi ka wo pal gozara hain jo shayad ma kabhi be bhool na pao 💝 or allah pak mera hisa ki sari khoshiya apko dy or apka hisa ka sara ghum hamsha khush rakho ap 😘<br>Ameen🤲</p>
+    <div class="actions">
+      <button class="btn" onclick="makeHearts()">Hearts Animation ❤️</button>
+      <a class="btn" href="#forever"> Ak Or Page Ha Madam😚 </a>
+    </div>
+  </div>
+</section>
+
+<section id="forever" class="final">
+  <div class="container reveal">
+    <div class="big-heart">♥</div>
+    <div class="kicker">Page 08 • I hope apko pasand aya hoga</div>
+    <h2>Happy🎂<span style="color:var(--rose)">birthday Cute <br>🥰.</span></h2>
+    <p>Ya khas apka leya web Bani ha Umeed Hai Apko Pasand Aye Ge Or Ak Serpice h
+    Hai lkn Wo 2nd Web ma hai 🌝.”</p><br>
+    <p>کاش لفظوں کی بھی کوئی قیمت ہوتی،<br>تو آج اپنی پوری زندگی لکھ کر تمہارے نام کر دیتا…<br>کیو کہ تم وہ احساس ہو،<br>جسے لفظ کبھی پورا بیان نہیں کر سکتے۔ ❤️</p>
+    <p style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:28px">This Is For My Princess 🌝. ♥</p>
+    <div class="actions">
+      <a href="Index4.html" <button class="btn" onclick="makeHearts(); fireworks(55)">cilick karna 🤗👇</a></button>
+      <br></br>
+      <button class="btn" onclick="shareSite()">Copy web link♥</button>
+      <a href="index1.html"><img src="iman.jpg"height="200" </a>
+      <a href="README.txt"></a>
+      <a href="script.js"></a>
+      <a href="style.css"></a>
+    </div>
+  </div>
+</section>
+
+<script>
+const photos=[...document.querySelectorAll('.photo img')];
+const lb=document.getElementById('lightbox'), lbi=document.getElementById('lightboxImg');
+photos.forEach(img=>img.parentElement.addEventListener('click',()=>{lbi.src=img.src;lb.classList.add('open')}));
+function closeLightbox(e){if(!e||e.target===lb||e.target.classList.contains('close'))lb.classList.remove('open')}
+
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+
+function shareSite(){
+  const data={title:'Faryal — My Forever',text:'Faryal ke liye ek khaas digital gift ❤️',url:location.href};
+  if(navigator.share) navigator.share(data); else {navigator.clipboard?.writeText(location.href); alert('Link copy ho gaya ❤️');}
+}
+function makeHearts(){
+  for(let i=0;i<26;i++){
+    const h=document.createElement('div');h.textContent=['♥','❤','✦','♡'][Math.floor(Math.random()*4)];
+    h.style.position='fixed';h.style.left=Math.random()*100+'vw';h.style.top='105vh';h.style.zIndex=95;
+    h.style.color=['#d65a87','#e9c46a','#fff4e8'][Math.floor(Math.random()*3)];
+    h.style.fontSize=(16+Math.random()*28)+'px';h.style.pointerEvents='none';
+    h.style.transition='transform 2.8s ease, opacity 2.8s ease';document.body.appendChild(h);
+    requestAnimationFrame(()=>{h.style.transform=`translate(${(Math.random()-.5)*120}px,-${80+Math.random()*100}vh) rotate(${Math.random()*360}deg)`;h.style.opacity=0});
+    setTimeout(()=>h.remove(),3000);
+  }
+}
+function eyeMagic(){
+  const el=document.getElementById('eyeArt'); el.style.transition='1s'; el.style.transform='scale(1.02)';
+  for(let i=0;i<35;i++){const s=document.createElement('i');s.className='spark';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*1.5+'s';el.appendChild(s)}
+  setTimeout(()=>el.style.transform='',800);
+}
+function cutCake(){
+  document.getElementById('cakeNote').textContent='Happy Birthday, Faryal! Ab dekho asli magic… ✨';
+  document.querySelector('.flame').style.display='none';
+  fireworks(85); makeHearts();
+}
+function fireworks(n=65){
+  const c=document.getElementById('fireworks'),ctx=c.getContext('2d');
+  c.style.display='block';c.width=innerWidth;c.height=innerHeight;
+  const particles=[];
+  for(let k=0;k<n;k++){
+    const cx=innerWidth*(.12+Math.random()*.76),cy=innerHeight*(.12+Math.random()*.5);
+    for(let i=0;i<28;i++){
+      const a=Math.PI*2*i/28, sp=1.8+Math.random()*4.5;
+      particles.push({x:cx,y:cy,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,size:1+Math.random()*2});
+    }
+  }
+  let t=0;
+  function frame(){
+    ctx.clearRect(0,0,c.width,c.height);t++;
+    particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.035;p.vx*=.992;p.vy*=.992;p.life-=.012;ctx.globalAlpha=Math.max(0,p.life);ctx.fillStyle=`hsl(${(t*3+p.x)%360},90%,70%)`;ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,7);ctx.fill()});
+    if(t<110)requestAnimationFrame(frame);else{ctx.clearRect(0,0,c.width,c.height);c.style.display='none'}
+  } frame();
+}
+</script>
+</body>
+</html>

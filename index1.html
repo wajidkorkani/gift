@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>For my wife F ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="hearts" aria-hidden="true"></div>
+  <div id="sparkles" aria-hidden="true"></div>
+
+  <main class="app">
+    <!-- Loading / intro -->
+    <section class="screen active" id="loading">
+      <div class="loader-heart">♥</div>
+      <h1>Initializing Love.exe</h1>
+      <p>Searching the universe for one special person...</p>
+      <div class="progress"><span id="progressBar"></span></div>
+      <strong id="progressText">0%</strong>
+      <div class="result">Found <b>1</b> Result ❤️</div>
+    </section>
+
+    <!-- Letter -->
+    <section class="screen" id="letter">
+      <div class="card letter-card">
+        <div class="script">for you</div>
+        <p>Hey <span class="name">Jaan</span>...</p>
+        <p>Pata hai... Main ye sab normally bol nahi pata...</p>
+        <p>Lekin aaj dil ne kaha... Risk le le...<br>Kyuki kuch log baar baar nahi milte.</p>
+        <button class="btn next" data-next="walk">Next</button>
+      </div>
+    </section>
+
+    <!-- Question 1 -->
+    <section class="screen" id="walk">
+      <div class="card question-card">
+        <div class="flower">🌸</div>
+        <h2>Long Walk?</h2>
+        <div class="buttons">
+          <button class="btn" data-next="question">YES</button>
+          <button class="btn" data-next="question">ALWAYS</button>
+        </div>
+        <div class="dots"><i></i><i class="on"></i><i></i></div>
+      </div>
+    </section>
+
+    <!-- Question 2 -->
+    <section class="screen" id="question">
+      <div class="card question-card">
+        <div class="tiny-heart">♥</div>
+        <h2>So...<br><b>Ek Question<br>Puchu?</b></h2>
+        <button class="btn" data-next="proposal">Haan Pucho</button>
+      </div>
+    </section>
+
+    <!-- Proposal -->
+    <section class="screen" id="proposal">
+      <div class="card proposal-card">
+        <h2>will You Merry me ?👀🤭</h2>
+        <div class="big-heart">♥</div>
+        <div class="buttons">
+          <button class="btn yes" id="yesBtn">YES</button>
+          <button class="btn shy" id="shyBtn">Maybe? 🥺</button>
+        </div>
+        <small id="shyText">Please... ek chance? ❤️</small>
+      </div>
+    </section>
+
+    <!-- Success -->
+    <section class="screen" id="success">
+      <div class="success-content">
+        <div class="confetti-heart">♥</div>
+        <h1>Yayyyyyyyyyy ❤️</h1>
+        <p>Man gai 😁🤭...</p>
+        <p>Ab tum meri Wife ho 🌹.</p>
+        <p><b>I Promise...</b><br>Har smile ki wajah banne ki puri koshish karunga.</p><br><p> birthday wala din Hubby be mil gaya gift ma 🤭</p>
+        <div class="ring">💍</div>
+        <button class="btn" data-next="story">Welcome to Our Story</button>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="screen story-screen" id="story">
+      <div class="story-content">
+        <div class="story-heart">♥</div>
+        <p class="eyebrow">TOGETHER SINCE</p>
+        <h1>Welcome to<br>Our Story ❤️</h1>
+        <div class="counter">
+          <div><strong id="days">0</strong><span>Days</span></div>
+          <div><strong id="hours">0</strong><span>Hours</span></div>
+          <div><strong id="minutes">0</strong><span>Minutes</span></div>
+          <div><strong id="seconds">0</strong><span>Seconds</span></div>
+        </div>
+        <p class="quote">“Some love stories start with a click.<br>Ours starts with a yes.”</p>
+        <button class="btn restart" id="restart">Replay ❤️</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">Challenge Accepted. 💻❤️</div>
+  <script src="script.js"></script>
+</body>
+</html>

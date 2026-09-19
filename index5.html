@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Love Story ❤️</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;font-family:Arial,sans-serif;color:#fff;overflow-x:hidden;
+  background:radial-gradient(circle at top,#5b123f 0,#210b27 42%,#090612 100%);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;
+  background-image:radial-gradient(#fff 1px,transparent 1px);
+  background-size:38px 38px;animation:stars 18s linear infinite;
+}
+@keyframes stars{to{background-position:38px 38px}}
+.heart{position:fixed;bottom:-40px;animation:float 9s linear infinite;opacity:.7;pointer-events:none}
+@keyframes float{0%{transform:translateY(0) scale(.7) rotate(0);opacity:0}
+15%{opacity:.8}100%{transform:translateY(-115vh) scale(1.25) rotate(25deg);opacity:0}}
+header{text-align:center;padding:52px 20px 28px}
+h1{font-size:clamp(32px,8vw,68px);letter-spacing:2px;text-shadow:0 0 25px #ff4fa3;animation:pulse 2.5s infinite}
+@keyframes pulse{50%{text-shadow:0 0 45px #ff4fa3,0 0 80px #ff8bc5}}
+.subtitle{margin-top:12px;color:#ffd3e8;font-size:17px}
+.container{max-width:1100px;margin:auto;padding:20px}
+.lock-card{
+  max-width:440px;margin:40px auto;padding:32px;border:1px solid #ff6caf66;border-radius:28px;
+  background:#ffffff0d;backdrop-filter:blur(14px);box-shadow:0 15px 60px #0008;text-align:center;
+}
+input{width:100%;padding:16px;border-radius:16px;border:1px solid #ff8bc555;background:#14091b;color:#fff;font-size:18px;text-align:center;outline:none}
+input:focus{border-color:#ff70b4;box-shadow:0 0 20px #ff70b455}
+button{
+  margin-top:15px;width:100%;padding:15px;border:0;border-radius:16px;cursor:pointer;
+  color:#fff;font-size:17px;font-weight:bold;background:linear-gradient(90deg,#e52d82,#ff6caf,#b8329c);
+  background-size:200%;animation:gradient 4s ease infinite;transition:.25s;
+}
+button:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 30px #ff3f9c55}
+@keyframes gradient{50%{background-position:100%}}
+#error{min-height:25px;margin-top:12px;color:#ff9ac8}
+#countdown{margin-top:15px;font-size:26px;color:#ffd1e5;font-weight:bold}
+.hidden{display:none!important}
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;padding:20px 0 60px}
+.video-card{
+  padding:12px;border-radius:26px;background:linear-gradient(145deg,#ffffff12,#ffffff06);
+  border:1px solid #ff78b533;box-shadow:0 12px 45px #0007;transition:.35s;
+  animation:cardIn .8s both;
+}
+.video-card:hover{transform:translateY(-9px) rotate(.4deg);border-color:#ff78b399;box-shadow:0 20px 55px #ff2d8850}
+@keyframes cardIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+video{width:100%;display:block;border-radius:19px;background:#000}
+.caption{text-align:center;padding:14px 6px 7px;font-size:18px;color:#ffd6e8}
+.footer{text-align:center;padding:25px;color:#cda9ba}
+#app{display:none}
+.note{text-align:center;margin:10px 0 25px;color:#eab9cc}
+.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-5px)}}
+</style>
+</head>
+<body>
+<div id="hearts"></div>
+
+<section id="gate">
+<header>
+  <h1>Our Little Love Story ❤️</h1>
+  <p class="subtitle">A private place for beautiful memories ✨</p>
+</header>
+<div class="lock-card" id="lockCard">
+  <div style="font-size:45px;margin-bottom:12px">🔐</div>
+  <h2>Enter the Secret Key</h2>
+  <p class="note">Only the right password opens our little world 💕</p>
+  <input id="password" type="password" inputmode="numeric" placeholder="Enter password">
+  <button onclick="unlock()">Open My Heart ❤️</button>
+  <div id="error"><a href="Index.html" <button class="btn" onclick="back">Back To Home Page</button></a>
+  <div id="countdown"></div>
+</div>
+</section>
+
+<section id="app">
+<header>
+  <h1>Made With Love ❤️</h1>
+  <p class="subtitle">Four little memories, one beautiful story ✨</p>
+</header>
+<div class="container">
+  <div class="videos">
+    <div class="video-card"><video controls playsinline preload="metadata" src="video1.mp4"></video><div class="caption">Memory One 💗</div></div>
+    <div class="video-card"><video controls playsinline preload="metadata" src="video2.mp4"></video><div class="caption">Memory Two 💕</div></div>
+    <div class="video-card"><video controls playsinline preload="metadata" src="video3.mp4"></video><div class="caption">Memory Three 💖</div></div>
+    <div class="video-card"><video controls playsinline preload="metadata" src="video4.mp4"></video><div class="caption">Memory Four 💞</div></div>
+  </div>
+  <div class="footer">Forever looks beautiful with you. ❤️</div>
+</div>
+<a href="Index.html" <button class="btn" onclick="back">Go To Home</button></a>
+</section>
+
+<script>
+const SECRET="2392008";
+const MAX=5;
+const LOCK_MS=100*60*1000;
+const ATTEMPTS_KEY="love_wrong_attempts";
+const LOCK_KEY="love_locked_until";
+
+function makeHearts(){
+  const box=document.getElementById("hearts");
+  for(let i=0;i<22;i++){
+    const h=document.createElement("div");
+    h.className="heart"; h.textContent=Math.random()>.25?"♥":"♡";
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(14+Math.random()*28)+"px";
+    h.style.animationDelay=(-Math.random()*9)+"s";
+    h.style.animationDuration=(7+Math.random()*6)+"s";
+    box.appendChild(h);
+  }
+}
+function remaining(){
+  return Math.max(0,Number(localStorage.getItem(LOCK_KEY)||0)-Date.now());
+}
+function showLocked(){
+  const ms=remaining();
+  if(ms<=0){
+    localStorage.removeItem(LOCK_KEY);
+    localStorage.removeItem(ATTEMPTS_KEY);
+    document.getElementById("countdown").textContent="";
+    return false;
+  }
+  document.getElementById("countdown").textContent="🔒 Locked for "+format(ms);
+  return true;
+}
+function format(ms){
+  let s=Math.ceil(ms/1000),m=Math.floor(s/60),sec=s%60;
+  return m+"m "+String(sec).padStart(2,"0")+"s";
+}
+function unlock(){
+  if(showLocked()) return;
+  const input=document.getElementById("password");
+  const error=document.getElementById("error");
+  if(input.value===SECRET){
+    localStorage.removeItem(ATTEMPTS_KEY);
+    document.getElementById("gate").classList.add("hidden");
+    document.getElementById("app").style.display="block";
+    error.textContent="";
+    return;
+  }
+  let n=Number(localStorage.getItem(ATTEMPTS_KEY)||0)+1;
+  localStorage.setItem(ATTEMPTS_KEY,n);
+  input.value="";
+  document.getElementById("lockCard").classList.remove("shake");
+  void document.getElementById("lockCard").offsetWidth;
+  document.getElementById("lockCard").classList.add("shake");
+  if(n>=MAX){
+    localStorage.setItem(LOCK_KEY,Date.now()+LOCK_MS);
+    error.textContent="Too many wrong attempts. 💔";
+    showLocked();
+  }else{
+    error.textContent="Wrong password • "+(MAX-n)+" attempt(s) left.";
+  }
+}
+document.getElementById("password").addEventListener("keydown",e=>{if(e.key==="Enter")unlock()});
+makeHearts();
+if(showLocked()){}
+setInterval(()=>{if(showLocked()){}},1000);
+</script>
+</body>
+</html>
